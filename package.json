@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "artillery": "^2.0.0-30",
+    "bcryptjs": "^2.4.3",
     "child_process": "^1.0.2",
     "compression": "^1.7.4",
     "connect-mongo": "^4.6.0",
@@ -21,10 +23,12 @@
     "express-session": "^1.17.3",
     "mongoose": "^6.8.0",
     "morgan": "^1.10.0",
+    "nodemailer": "^6.9.1",
     "nodemon": "^2.0.20",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "socket.io": "^4.5.3",
+    "twilio": "^4.7.2",
     "winston": "^3.8.2"
   }
 }

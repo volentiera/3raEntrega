@@ -19,7 +19,7 @@ const loginSchema = new Schema({
         required: true
     },
     edad:{
-        type: Number,
+        type: String,
         required: true
     },
     tel:{
@@ -31,6 +31,10 @@ const loginSchema = new Schema({
         required: true
     },
     cart:{
+        type: Array,
+        required: true
+    },
+    order:{
         type: Array,
         required: true
     }

@@ -2,19 +2,21 @@ require('dotenv').config()
 
 const os = require('os')
 const cluster = require('cluster');
+const logger = require('./src/utils/logger');
+
 const modo = process.argv[3] || 'fork';
 if (modo == 'cluster' && cluster.isPrimary) {
     const numCPUs = os.cpus().length;
-
-    console.log(`Primary ${process.pid} is running`);
-    console.log(`número de procesadores: ${numCPUs}`);
+    
+    logger.info(`Primary ${process.pid} is running`);
+    logger.info(`número de procesadores: ${numCPUs}`);
 
     for (let i = 0; i < numCPUs; i++) {
         cluster.fork();
     }
 
     cluster.on('exit', worker => {
-        console.log(`worker ${worker.process.pid} died`, new Date().toLocaleString());
+        logger.info(`worker ${worker.process.pid} died`, new Date().toLocaleString());
         cluster.fork();
     })
 } else {
@@ -51,13 +53,11 @@ if (modo == 'cluster' && cluster.isPrimary) {
 
     //server
     const server = app.listen(PORT, () =>
-        console.log(
-            `Server started on PORT http://localhost:${PORT} --${process.pid} -- at ${new Date().toLocaleString()}`
-        )
+        logger.info(`Server started on PORT http://localhost:${PORT} --${process.pid} -- at ${new Date().toLocaleString()}`)
     );
 
     server.on('error', (err) => {
-        console.log('Error en el servidor:', err)
+        logger.info('Error en el servidor:', err)
     })
 
 }

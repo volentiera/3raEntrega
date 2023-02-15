@@ -1,0 +1,23 @@
+
+<article class="media">
+    <figure class="media-left" id="divInfo">
+        <p class="image">
+            <img style="height: 500px;" src="<%=product.image %>" alt="Placeholder image" />
+        </p>
+    </figure>
+    <div class="is-flex is-flex-direction-column media-content m-4 has-text-centered ">
+        <div class="content">
+            <p class="is-size-1">
+                <%=product.name %>
+            </p>
+        </div>
+        <div class="content">
+            <p class="is-size-3">
+                $ <%=product.price %>
+            </p>
+        </div>
+        <a class="ml-4" href="http://localhost:<%= currentPort %>/api/carrito/<%=product._id %>">
+            <button id="btnInfo" class="button is-large is-success mt-4">Añadir al Carrito</button>
+        </a>
+    </div>
+</article>

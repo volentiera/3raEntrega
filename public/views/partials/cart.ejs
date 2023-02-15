@@ -1,0 +1,26 @@
+
+<article>
+    <% cartProducts.forEach(cartProduct=> { %>
+    <div class="m-4 has-text-centered ">
+        <div>
+            <img style="height: 300px; width: 300px;" src="<%=cartProduct.image %>" alt="Placeholder image" />
+        </div>
+        <div class="content">
+            <p class="is-size-1">
+                <%=cartProduct.name %>
+            </p>
+        </div>
+        <div class="content">
+            <p class="is-size-3">
+                $ <%=cartProduct.price %>
+            </p>
+        </div>
+        <% }); %>
+        <a class="ml-4" href="http://localhost:<%= currentPort %>/api/checkout">
+            <button class="button is-large is-success mt-4">Comprar</button>
+        </a>
+        <a class="ml-4" href="http://localhost:<%= currentPort %>/api/productos">
+            <button class="button is-large is-success mt-4">Volver</button>
+        </a>
+    </div>
+</article>
