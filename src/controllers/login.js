@@ -34,7 +34,7 @@ const getLoginByUsername = async (req, res)=>{
 }
 const updateLogin = async(req, res)=>{
     try {
-        const updatedLogin = await Login.updateOne(req)
+        const updatedLogin = await Login.replaceOne(req.search, req.login)
         return updatedLogin
     } catch (error) {
         logger.warn(error)
